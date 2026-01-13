@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Màu nền tùy chọn */
+    display: flex;
+    justify-content: center;
+}
+
+/* Class này giúp SVG co giãn theo màn hình */
+.svg-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px; /* Không cho to hơn 1920px */
+    height: auto;
+}
+
+/* Đảm bảo SVG bên trong lấp đầy container */
+.svg-container svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ví dụ: Hiệu ứng khi di chuột vào nút bấm trong SVG */
+#nut-bam:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+@keyframes zoom-in {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); } /* Phóng to 10% */
+    100% { transform: scale(2); }
+  }
+
+  .read-btn-01 {
+    /* Xóa fill ở đây nếu bạn muốn chỉnh màu riêng cho chữ và nền trong HTML */
+    /* Hoặc giữ nguyên để tô màu chung cho cả nhóm */
+    fill: #bad7ff; 
+    
+    transition: transform 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* Khi di chuột vào nhóm, phóng to cả nhóm */
+.read-btn-01:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    fill: #8ebaf8; /* Màu nền khi hover */
+}
+
+/* Đảm bảo chữ luôn có màu riêng (ví dụ màu đen), không bị ảnh hưởng bởi màu nền */
+.read-btn-01 text {
+    fill: #000 !important; /* Màu chữ: Đen */
+    stroke: none;
+}
+
+
+.link-btn {
+    /* Xóa fill ở đây nếu bạn muốn chỉnh màu riêng cho chữ và nền trong HTML */
+    /* Hoặc giữ nguyên để tô màu chung cho cả nhóm */
+    fill: #bad7ff; 
+    fill: #000083;
+    
+    transition: transform 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* Khi di chuột vào nhóm, phóng to cả nhóm */
+.link-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    fill: #000083; /* Màu nền khi hover */
+}
+
+#bar-btn path  {
+    transition: fill 0.3s ease; /* Thời gian chuyển đổi 0.3s */
+    cursor: pointer;
+}
+
+#bar-btn:hover path  {
+    fill:#6161b2 !important;
+}
+
+#lib-btn   {
+    transition: fill 0.3s ease; /* Thời gian chuyển đổi 0.3s */
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* @-webkit-keyframes heartBeat{
+    0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+     100%{
+        transform: scale(1.3);
+ 
+    }
+}
+
+@   keyframes heartBeat{
+    0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+     100%{
+        transform: scale(1.3);
+     }
+} */
+
+#lib-btn:hover    {
+    /* -webkit-animation: heartBeat 0.8s;
+  animation: heartBeat 0.8s; */
+  transform: scale(1.1);
+    cursor: pointer;
+}
+
+       /* 1. Định nghĩa chuyển động (Keyframes) */
+       @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px); /* Bắt đầu ở vị trí thấp hơn 30px */
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0); /* Kết thúc ở vị trí gốc */
+        }
+      }
+      
+      /* 2. Tạo Class áp dụng hiệu ứng */
+      .fade-in-up {
+        opacity: 0; /* Ẩn phần tử ban đầu để tránh bị nhấp nháy */
+        animation: fadeInUp 1s ease-out forwards; /* Chạy animation trong 1s */
+      }
+      
+      /* (Tùy chọn) Thêm độ trễ nếu bạn muốn các phần tử hiện lần lượt */
+      .delay-1 { animation-delay: 0.2s; }
+      .delay-2 { animation-delay: 0.4s; }
+      .delay-3 { animation-delay: 0.6s; }
+
+  .trigger{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .target{
+  transition: transform 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .trigger:hover{
+    transform: scale(1.1);
+  }
+
+  .target:has(+ .trigger:hover) {
+    transform: scale(1.1);
+  }
+  .btn-animation{
+    transform: scale(1.1);
+  }
+
+  .container{
+    position: absolute;
+  top: 0;
+  left: 0;
+
+  /* 2. QUAN TRỌNG NHẤT: Đặt gốc biến đổi về góc trên-trái giống SVG */
+  transform-origin: 0 0; 
+
+  /* 3. Áp dụng thông số của bạn */
+  /* Lưu ý: thêm 'px' vào sau các con số tọa độ */
+  transform: translate(140.6px, 932.629px) scale(0.56925);
+  
+  /* (Tùy chọn) Để kiểm tra vị trí */
+  width: 100px; /* Hoặc kích thước gốc của đối tượng trong SVG trước khi scale */
+  height: 100px;
+  }
