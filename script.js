@@ -29,8 +29,8 @@ function tiktok() {
 
 
 function btn_04_1() {
-    var url = ""; 
-    
+    var url = "https://drive.google.com/file/d/19W6NenacbGG2L6TTeoSqvGcPfoVMsCy3/view?usp=sharing"; 
+
     // '_blank' là tham số bắt buộc để mở trong tab mới
     window.open(url, '_blank');
 }
@@ -361,55 +361,52 @@ const el1 = document.getElementById('el1');
     el1.addEventListener('mouseleave', () => {
       el2.classList.remove('btn-animation');
     });
-    function submit() {
-        // Link Google Form (Giữ nguyên nếu bạn không tạo Form mới, chỉ sửa câu hỏi)
-        const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLScbpLR7SStVGTbnRfNU0_np6diZN6wp_HSvEp2CkRd-hNNZyg/formResponse';
-    
-        // 1. Lấy dữ liệu (theo đoạn code bạn vừa gửi)
-        const name = document.getElementById("input_name").value;
-        const lname = document.getElementById("input_last_name").value; // Biến mới
-        const email = document.getElementById("input_email").value;
-        const phone = document.getElementById("input_phone").value;
-        const message = document.getElementById("input_message").value;
-    
-        // 2. Kiểm tra dữ liệu (Bắt buộc nhập Tên và Tin nhắn)
-        if (name === "" || message === "") {
-            alert("Vui lòng điền Tên và Nội dung tin nhắn!");
-            return;
-        }
-    
-        // 3. Đóng gói dữ liệu (Cần điền lại mã số mới)
-        const formData = new FormData();
-        
-        // --- LƯU Ý: Thay mã số bên dưới bằng mã bạn lấy được từ bước Get pre-filled link ---
-        formData.append("entry.865856870", name);     // Mã cho ô Tên
-        formData.append("entry.XBXBXBXBXB", lname);   // <--- THAY MÃ MỚI CHO Ô "HỌ" VÀO ĐÂY
-        formData.append("entry.1907687518", email);   // Mã cho ô Email
-        formData.append("entry.83723709", phone);     // Mã cho ô SĐT
-        formData.append("entry.777343319", message);  // Mã cho ô Tin nhắn
-    
-        // (Lưu ý: Mã entry của Subject cũ (2103816516) có thể không dùng được nữa nếu bạn đã xóa câu hỏi đó đi)
-    
-        // 4. Gửi đi
-        fetch(formURL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-        })
-        .then(() => {
-            alert("Cảm ơn " + name + " " + lname + "! Tin nhắn đã gửi thành công.");
-            
-            // Reset form
-            document.getElementById("input_name").value = "";
-            document.getElementById("input_last_name").value = "";
-            document.getElementById("input_email").value = "";
-            document.getElementById("input_phone").value = "";
-            document.getElementById("input_message").value = "";
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert("Có lỗi xảy ra!");
-        });
+function submit() {
+    // 1. Link Form của bạn (đã đổi đuôi thành /formResponse để gửi dữ liệu)
+    const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSey-p0D8z60TEydV1OtSigP9FSCi0-HusaMRMyIPxtBAlx9sw/formResponse';
+
+    // 2. Lấy dữ liệu từ các ô input (Đảm bảo ID trong HTML của bạn đúng như này)
+    const name = document.getElementById("input_name").value;
+    const lname = document.getElementById("input_last_name").value;
+    const email = document.getElementById("input_email").value;
+    const phone = document.getElementById("input_phone").value;
+    const message = document.getElementById("input_message").value;
+
+    // 3. Kiểm tra: Bắt buộc nhập Tên và Tin nhắn mới cho gửi
+    if (name === "" || message === "") {
+        alert("Vui lòng nhập Tên và Nội dung tin nhắn!");
+        return;
     }
 
+    // 4. Tạo gói dữ liệu để gửi đi
+    const formData = new FormData();
+    
+    // --- KHU VỰC QUAN TRỌNG: GẮN ĐÚNG MÃ SỐ MỚI TỪ LINK CỦA BẠN ---
+    formData.append("entry.1047936049", name);      // Tên
+    formData.append("entry.1526709508", lname);     // Họ
+    formData.append("entry.838877943", email);      // Email
+    formData.append("entry.1884775098", phone);     // Số điện thoại
+    formData.append("entry.2044231554", message);   // Tin nhắn
 
+    // 5. Gửi dữ liệu đi
+    fetch(formURL, {
+        method: 'POST',
+        mode: 'no-cors', // Chế độ này giúp gửi được mà không bị lỗi bảo mật (CORS)
+        body: formData
+    })
+    .then(() => {
+        // Thông báo thành công
+        alert("Cảm ơn " + name + "! Tin nhắn đã được gửi thành công.");
+        
+        // Xóa trắng các ô sau khi gửi để người dùng nhập mới nếu muốn
+        document.getElementById("input_name").value = "";
+        document.getElementById("input_last_name").value = "";
+        document.getElementById("input_email").value = "";
+        document.getElementById("input_phone").value = "";
+        document.getElementById("input_message").value = "";
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("Có lỗi xảy ra, vui lòng thử lại!");
+    });
+}
