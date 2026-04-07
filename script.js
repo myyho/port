@@ -300,6 +300,7 @@ function sach() {
 
 function MM() {
     window.location.href ="https://www.facebook.com/mastermind.hcmiu/about"; 
+    
 }
 
 
