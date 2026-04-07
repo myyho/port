@@ -287,7 +287,7 @@ function btn_19_3(){
 
 
 function flo() {
-    window.location.href ="https://www.facebook.com/my.yy.241773/"; 
+    window.location.href ="https://www.tiktok.com/@florasion_macrame"; 
 }
 
 function song() {
@@ -295,7 +295,7 @@ function song() {
 }
 
 function sach() {
-    window.location.href ="https://www.facebook.com/my.yy.241773/"; 
+    window.location.href ="https://www.facebook.com/clbsachbsitf"; 
 }
 
 function MM() {
