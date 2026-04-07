@@ -299,7 +299,7 @@ function sach() {
 }
 
 function MM() {
-    window.location.href ="https://www.facebook.com/my.yy.241773/"; 
+    window.location.href ="https://www.facebook.com/mastermind.hcmiu/about"; 
 }
 
 
