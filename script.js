@@ -29,7 +29,7 @@ function tiktok() {
 
 
 function btn_04_1() {
-    var url = "https://drive.google.com/drive/search?hl=vi&q=resume"; 
+    var url = "https://drive.google.com/file/d/1xt7yNaoE9t_Ku12wneKh6aH7QZBsqqTk/view"; 
 
     // '_blank' là tham số bắt buộc để mở trong tab mới
     window.open(url, '_blank');
