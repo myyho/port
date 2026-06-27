@@ -135,3 +135,8 @@ function visef_fb(){
     // '_blank' là tham số bắt buộc để mở trong tab mới
     window.open(url, '_blank');
 }
+
+
+function libary() {
+    window.location.href ="6.html"; 
+}
